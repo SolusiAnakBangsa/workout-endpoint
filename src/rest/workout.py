@@ -12,7 +12,7 @@ class WorkoutREST(Resource):
         # Make firestore client
         fcl = firestore.client()
 
-        response = {"levels": "chapter_empty"}
+        response = {"levels": ""}
         
         # Gets the document, and transforms it to python dictionary
         level_doc_ref = fcl.collection('workouts').document(pack) # This is only the reference. Haven't pulled from the server

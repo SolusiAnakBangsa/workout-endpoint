@@ -2,7 +2,7 @@ import os
 
 DEBUG = os.getenv("ENVIRONMENT") == "DEV"
 
-APP_ROOT = os.getenv("APP_ROOT")
+APP_ROOT = os.getenv("APP_ROOT", "")
 PORT = os.getenv("APP_PORT", 8536)
 
 # Google bucket configs

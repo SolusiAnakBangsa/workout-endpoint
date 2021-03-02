@@ -15,6 +15,7 @@ app.debug = c.DEBUG
 # Registers all the routes
 for blueprint in vars(routes).values():
     if isinstance(blueprint, Blueprint):
-        app.register_blueprint(blueprint, url_prefix=c.APP_ROOT)
+        # Register with url prefix and blueprint prefix
+        app.register_blueprint(blueprint, url_prefix=(c.APP_ROOT + blueprint.url_prefix if blueprint.url_prefix else ""))
 
 app.run(port=c.PORT)

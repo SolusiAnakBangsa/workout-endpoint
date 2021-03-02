@@ -6,10 +6,6 @@ import models
 
 app = Flask(__name__)
 
-@app.route("/")
-def bruh():
-    return "Yes and thank you."
-
 # Set debug mode
 app.debug = c.DEBUG
 

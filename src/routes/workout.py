@@ -5,4 +5,4 @@ from rest import WorkoutREST
 
 WORKOUT_BL = Blueprint("workout", __name__, url_prefix="/workout")
 api = Api(WORKOUT_BL)
-api.add_resource(WorkoutREST, "/foosh")
+api.add_resource(WorkoutREST, "/levelpack/<string:pack>")

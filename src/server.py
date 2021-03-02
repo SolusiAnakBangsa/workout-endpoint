@@ -2,6 +2,7 @@ from flask import Flask
 from flask.blueprints import Blueprint
 import config as c
 import routes
+import models
 
 app = Flask(__name__)
 
@@ -18,4 +19,5 @@ for blueprint in vars(routes).values():
         # Register with url prefix and blueprint prefix
         app.register_blueprint(blueprint, url_prefix=(c.APP_ROOT + blueprint.url_prefix if blueprint.url_prefix else ""))
 
-app.run(port=c.PORT)
+if __name__ == "__main__":
+    app.run(port=c.PORT)

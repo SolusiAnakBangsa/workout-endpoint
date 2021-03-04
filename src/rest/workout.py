@@ -21,9 +21,6 @@ class WorkoutREST(Resource):
         if level_doc.exists:
             response = level_doc.to_dict()
 
-            # Create bucket storage client object
-            bcl = storage.Client()
-
             # Replace every thumbnail with bucket link.
             for level in response["levels"]:
                 file_name = level.get("thumbnail")
@@ -31,7 +28,7 @@ class WorkoutREST(Resource):
 
                 level['thumbnail'] = WorkoutREST.thumbnailsite.format(
                     bucketname=thumb_bucket.name,
-                    thumbname=(file_name if storage.Blob(file_name, thumb_bucket).exists() else "default.png" if file_name else "default.png")
+                    thumbname=((file_name if storage.Blob(file_name, thumb_bucket).exists() else "default.png") if file_name else "default.png")
                 )
             
         return response

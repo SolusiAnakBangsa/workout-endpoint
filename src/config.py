@@ -1,4 +1,10 @@
 import os
+from dotenv import load_dotenv
+
+# Take environment variables from .env.
+load_dotenv(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env"))
+)
 
 DEBUG = os.getenv("ENVIRONMENT") == "DEVELOPMENT"
 
